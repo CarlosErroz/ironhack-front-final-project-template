@@ -1,7 +1,12 @@
 <template>
-  <section>
-    <router-view class="app-main" />
-  </section>
+  <Header />
+
+  <Auth />
+  
+  <router-view class="app-main" />
+
+  <Footer />
+  
 </template>
 
 <script setup>
@@ -9,6 +14,10 @@ import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import { useUserStore } from "./store/user.js";
+
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import Auth from "./pages/Auth.vue"
 
 const router = useRouter();
 const userStore = useUserStore();
