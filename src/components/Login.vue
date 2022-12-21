@@ -1,8 +1,19 @@
-<template>
-    <header>
-        Esto es formulario LOGIN
+<template >
+    <form class="bg-sky-400 mx-auto rounded-md p-5 m-5 shadow-xl flex flex-col">
+        <h3 class="mb-5 font-black text-sky-900 text-xl">Login</h3>
+        <div>
+            <label for="email">Email</label>
+            <br/>
+            <input type="email" name="email" v-model="email" required class="mb-2 rounded min-w-full"/>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <br/>
+            <input type="password" name="password" v-model="password" required class="mb-5 rounded min-w-full"/>
+        </div>
+        <button type="submit" class="bg-sky-600 rounded min-w-full">Send</button>
 
-    </header>
+    </form>
 </template>
 
 <script setup>
