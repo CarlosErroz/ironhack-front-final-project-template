@@ -4,12 +4,12 @@ import Home from "../pages/Home.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/auth",
     name: "Auth",
     component: Auth,
   },
   {
-    path: "/home",
+    path: "/",
     name: "Home",
     component: Home,
   },

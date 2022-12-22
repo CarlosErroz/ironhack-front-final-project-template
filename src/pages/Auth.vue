@@ -4,9 +4,9 @@
         <h3 class="text-center text-sky-900 text-xl font-semibold">Where an easier tracking of your tasks is possible</h3>
         <img src="../assets/PulgarIcon.png" alt ="OK icon" class="w-10 mt-5"/>
 
-        <Login v-if="show" />
+        <NewRegister v-if="show" />
 
-        <NewRegister v-else/>
+        <Login v-else/>
 
         <button @click="changeRegister" class="bg-slate-700 text-white mx-auto rounded-md p-2 mb-10 shadow-xl">{{buttonText}}</button>
     </section>
@@ -19,15 +19,15 @@ import Login from "../components/Login.vue";
 import NewRegister from "../components/NewRegister.vue";
 
 const show = ref(true);
-const buttonText = ref("Register a new user");
+const buttonText = ref("Login existing user");
 
 function changeRegister() {
-    if (buttonText.value === "Register a new user") {
+    if (buttonText.value === "Login existing user") {
         show.value=false;
-        buttonText.value="Login existing user";
+        buttonText.value="Register a new user";
 } else {
         show.value=true;
-        buttonText.value="Register a new user";
+        buttonText.value="Login existing user";
 }
 }
 
