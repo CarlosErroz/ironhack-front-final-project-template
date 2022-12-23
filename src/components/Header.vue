@@ -4,6 +4,7 @@
         <div class="font-semibold">
             <a href="#" class="px-5">Home</a>
             <a href="#" class="px-5">About Us</a>
+            <button @click="checkOut" class="px-5">Sign Out</button>
         </div>
         
 
@@ -11,6 +12,21 @@
 </template>
 
 <script setup>
+import { useUserStore } from "../store/user";
+import { useRouter } from "vue-router";
+
+const user = useUserStore();
+const router = useRouter();
+
+// función signOut
+async function checkOut() {
+    try {
+        await user.signOut();
+        router.push({ path: "/auth" });
+    } catch (e) {
+        console.log(e);
+    }   
+}
 
 </script>
 
