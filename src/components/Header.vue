@@ -2,9 +2,11 @@
     <header class="bg-sky-700 text-white h-[50px] px-5 flex justify-between items-center">
         <h2 class="italic font-black text-2xl">MyTasksApp</h2>
         <div class="font-semibold">
-            <a href="#" class="px-5">Home</a>
-            <a href="#" class="px-5">About Us</a>
-            <button @click="checkOut" class="px-5">Sign Out</button>
+            <router-link to="/auth" v-if="!user" class="text-stone-800 font-bold px-5">Sign In</router-link>
+            <button v-if="user" class="text-stone-800 font-bold px-5">New task</button>
+            <router-link to="/" class="px-5">Home</router-link>            
+            <button v-if="user" @click="checkOut" class="px-5">Sign Out</button>            
+            <router-link to="/about" class="px-5">About Us</router-link>
         </div>
         
 
@@ -12,16 +14,20 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
 import { useUserStore } from "../store/user";
 import { useRouter } from "vue-router";
 
-const user = useUserStore();
+const userStore = useUserStore();
 const router = useRouter();
+
+const { user } = storeToRefs(userStore);
 
 // función signOut
 async function checkOut() {
     try {
-        await user.signOut();
+        await userStore.signOut();
+        user.value=null;
         router.push({ path: "/auth" });
     } catch (e) {
         console.log(e);

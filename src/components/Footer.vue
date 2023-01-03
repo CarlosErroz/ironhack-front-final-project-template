@@ -2,9 +2,9 @@
     <footer class="bg-sky-700 text-white h-[50px] px-5 flex justify-between items-center">
         <div>Copyright &copy;{{ currentYear }}</div>
         <div>
-            <a href="#" class="px-5">Privacy</a>
-            <a href="#" class="px-5">Terms</a>
-            <a href="#" class="px-5">Contact Us</a>
+            <router-link to="/privacy" class="px-5">Privacy</router-link>
+            <router-link to="/terms" class="px-5">Terms</router-link>
+            <router-link to="/contact" class="px-5">Contact Us</router-link>
         </div>
 
     </footer>
