@@ -3,7 +3,7 @@
         <h2 class="italic font-black text-2xl">MyTasksApp</h2>
         <div class="font-semibold">
             <router-link to="/auth" v-if="!user" class="text-stone-800 font-bold px-5">Sign In</router-link>
-            <button v-if="user" class="text-stone-800 font-bold px-5">New task</button>
+            <router-link to="/task" v-if="user" class="text-stone-800 font-bold px-5">New task</router-link>
             <router-link to="/" class="px-5">Home</router-link>            
             <button v-if="user" @click="checkOut" class="px-5">Sign Out</button>            
             <router-link to="/about" class="px-5">About Us</router-link>

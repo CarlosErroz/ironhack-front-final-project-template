@@ -5,6 +5,7 @@ import About from "../pages/About.vue";
 import Privacy from "../pages/Privacy.vue";
 import Terms from "../pages/Terms.vue";
 import Contact from "../pages/Contact.vue";
+import Task from "../pages/Task.vue";
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: Contact,
+  },
+  {
+    path: "/task",
+    name: "Task",
+    component: Task,
   },
 ];
 

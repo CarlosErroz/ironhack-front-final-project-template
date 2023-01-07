@@ -15,7 +15,9 @@ export const useTaskStore = defineStore("tasks", {
         .order("id", { ascending: false });
       this.tasks = tasks;
     },
+    
     // Hacer POST
+
     // Hacer el PUT (edit)
     // Hacer el delete
     // Hacer el PUT (cambiar entre completada y pendiente)
