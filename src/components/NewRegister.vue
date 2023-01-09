@@ -1,7 +1,7 @@
 <template>
     <form
         @submit.prevent="register"
-        class="bg-sky-400 mx-auto rounded-md p-5 m-5 shadow-xl flex flex-col">
+        class="bg-sky-400 rounded-md p-5 m-5 shadow-xl flex flex-col">
         <h3 class="mb-5 font-black text-sky-900 text-xl">Register</h3>
         <div v-if="errorMsg">
             <p class="text-red-600 font-bold">{{ errorMsg }}</p>
@@ -17,7 +17,7 @@
                 name="email"
                 v-model="email"
                 required
-                class="mb-2 rounded min-w-full focus:outline-none"/>
+                class="mb-2 rounded focus:outline-none"/>
         </div>
 
         <div>
@@ -28,7 +28,7 @@
                 name="password"
                 v-model="password"
                 required
-                class="mb-5 rounded min-w-full focus:outline-none"/>
+                class="mb-5 rounded focus:outline-none"/>
         </div>
 
         <div>
@@ -39,12 +39,12 @@
                 name="repeatPassword"
                 v-model="repeatPassword"
                 required
-                class="mb-5 rounded min-w-full focus:outline-none"/>
+                class="mb-5 rounded focus:outline-none"/>
         </div>
 
         <button
             type="submit"
-            class="bg-sky-600 rounded min-w-full hover:bg-slate-400 hover:text-white">
+            class="bg-sky-600 rounded hover:bg-slate-400 hover:text-white">
             Create user</button>
 
     </form>

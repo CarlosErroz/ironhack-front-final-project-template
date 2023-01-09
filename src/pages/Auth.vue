@@ -14,6 +14,7 @@
 </template>
 
 <script setup>
+
 import {ref} from "vue";
 import Login from "../components/Login.vue";
 import NewRegister from "../components/NewRegister.vue";
