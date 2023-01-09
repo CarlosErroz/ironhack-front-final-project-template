@@ -17,6 +17,16 @@ export const useTaskStore = defineStore("tasks", {
     },
     
     // Hacer POST
+      async postTask(userId,title,description) {
+        const {error} = await supabase
+        .from("tasks")
+        .insert({
+          user_id:userId,
+          title:title,
+          description:description,
+        });
+        if (error) throw error;
+      }
 
     // Hacer el PUT (edit)
     // Hacer el delete

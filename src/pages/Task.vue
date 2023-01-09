@@ -1,9 +1,12 @@
 <template>
     <div class="max-w-md my-10 mx-auto">
-        <form @submit.prevent="createTask" class="bg-sky-400 mx-auto rounded-md p-5 m-5 shadow-xl flex flex-col">
+        <form @submit.prevent="createTask" class="bg-sky-400 rounded-md p-5 m-5 shadow-xl flex flex-col">
             <h3 class="mb-5 font-black text-sky-900 text-xl">Create a new task</h3>
             <div v-if="errorMsg">
                 <p class="text-red-600 font-bold">{{ errorMsg }}</p>
+            </div>
+            <div v-if="sendingMsg">
+                <p class="text-green-600 font-bold">{{ sendingMsg }}</p>
             </div>
             
             <label for="task-title">Title</label>
@@ -32,28 +35,60 @@
             >Create
             </button>
         </form>
+        <button
+            @click="cleanTask"
+            id="refresh-button"
+            type="submit"
+            class="bg-slate-400 rounded min-w-full hover:bg-slate-400 hover:text-white"
+            >Clean for new task
+        </button>
 
     </div>
 </template>
 
 <script setup>
 import {ref} from 'vue';
+import { storeToRefs } from "pinia";
+import { useTaskStore } from "../store/task";
+import { useUserStore } from "../store/user";
+import { useRouter } from "vue-router";
+
+const task = useTaskStore();
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
+const router = useRouter();
 
 const taskTitle = ref("");
 const taskDescription = ref("");
 const errorMsg = ref(null);
+const sendingMsg = ref(null);
 
-function createTask() {
-    if (taskTitle.value.length<3 || taskTitle.value.length>25) {
-        errorMsg.value = "Error: TITLE length should be between 3 and 25 characters"
-    } else if (taskDescription.value.length<3 || taskDescription.value.length>150) {
-        errorMsg.value = "Error: DESCRIPTION length should be between 3 and 150 characters"
+// función crear una tarea
+async function createTask() {
+    if (taskTitle.value.length<6 || taskTitle.value.length>25) {
+        errorMsg.value = "Error: TITLE length should be between 6 and 25 characters"
+    } else if (taskDescription.value.length<6 || taskDescription.value.length>150) {
+        errorMsg.value = "Error: DESCRIPTION length should be between 6 and 150 characters"
     } else {
+    errorMsg.value = null;
     console.log(taskTitle.value);
     console.log(taskDescription.value);
+    console.log(user.value.id);
+    try {
+        await task.postTask(user.value.id,taskTitle.value,taskDescription.value);
+        sendingMsg.value = "New task created correctly";
+        return;
+    } catch (e) {
+        errorMsg.value = e.message;
+    }
 }
 }
 
+function cleanTask() {
+    taskTitle.value = null;
+    taskDescription.value = null;
+    sendingMsg.value = null;
+}
 
 </script>
 
