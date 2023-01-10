@@ -5,7 +5,7 @@ import About from "../pages/About.vue";
 import Privacy from "../pages/Privacy.vue";
 import Terms from "../pages/Terms.vue";
 import Contact from "../pages/Contact.vue";
-import Task from "../pages/Task.vue";
+import Task from "../pages/CreateTask.vue";
 
 const routes = [
   {

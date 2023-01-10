@@ -26,10 +26,20 @@ export const useTaskStore = defineStore("tasks", {
           description:description,
         });
         if (error) throw error;
-      }
+      },
 
     // Hacer el PUT (edit)
+
     // Hacer el delete
+      async deleteTask(value) {
+        const {error} = await supabase
+        .from("tasks")
+        .delete()
+        .eq("id", value);
+        if (error) throw error;
+      },
+
     // Hacer el PUT (cambiar entre completada y pendiente)
+
   },
 });

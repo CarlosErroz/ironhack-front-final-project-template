@@ -1,8 +1,12 @@
 <template>
     <p v-if="!user" class="p-5 text-red-600 font-bold">Please, first SIGN IN as an existing user or create a new one</p>
     <p v-else-if="!existanceTasks" class="p-5 text-red-600 font-bold">Ups! no tasks created yet, let's try with your first one</p>
-    <div v-else>
-        parece que sí hay alguna tarea
+    <div v-else class="bg-slate-100 p-2">
+      <h3 class="font-bold text-sky-900 text-xl text-center">Your current list of tasks</h3>
+      <div class="grid grid-cols-2 gap-2">
+        <Task v-for="task in tasks" :task="task">
+        </Task>
+      </div>
         
     </div>
 
@@ -13,29 +17,27 @@ import {ref} from "vue";
 import { storeToRefs } from "pinia";
 import { useUserStore } from "../store/user";
 import { useTaskStore } from "../store/task.js";
+import Task from '../components/Task.vue';
 
 const userStore = useUserStore();
 const { user } = storeToRefs(userStore);
 
 const taskStore = useTaskStore();
 const { tasks } = storeToRefs(taskStore);
-const existanceTasks = ref(false)
+const existanceTasks = ref(false);
 
-async function showTask() {
+async function getTasks() {
     try {
       await taskStore.fetchTasks();
-      if (tasks.value.length>0) {
-        existanceTasks.value=true;
-      }
-      console.log(existanceTasks.value)
+      existanceTasks.value=tasks.value.length>0;
+      console.log(tasks.value)
       }
     catch (e) {
       console.log(e);
     }
   } 
 
-showTask();
-
+getTasks();
 
 </script>
 
