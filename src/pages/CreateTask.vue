@@ -35,13 +35,6 @@
             >Create
             </button>
         </form>
-        <button
-            @click="cleanTask"
-            id="refresh-button"
-            type="submit"
-            class="bg-slate-400 rounded min-w-full hover:bg-slate-400 hover:text-white"
-            >Clean to create a new task
-        </button>
 
     </div>
 </template>
@@ -75,18 +68,13 @@ async function createTask() {
     try {
         await task.postTask(user.value.id,taskTitle.value,taskDescription.value);
         sendingMsg.value = "New task created correctly";
+        taskTitle.value = null;
+        taskDescription.value = null;
         return;
     } catch (e) {
         errorMsg.value = e.message;
     }
 }
-}
-
-//función botón limpiar contenido tarea anterior para hacer nueva
-function cleanTask() {
-    taskTitle.value = null;
-    taskDescription.value = null;
-    sendingMsg.value = null;
 }
 
 </script>
