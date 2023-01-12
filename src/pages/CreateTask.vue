@@ -2,6 +2,7 @@
     <div class="max-w-md my-10 mx-auto">
         <form @submit.prevent="createTask" class="bg-sky-400 rounded-md p-5 m-5 shadow-xl flex flex-col">
             <h3 class="mb-5 font-black text-sky-900 text-xl">Create a new task</h3>
+            
             <div v-if="errorMsg">
                 <p class="text-red-600 font-bold">{{ errorMsg }}</p>
             </div>

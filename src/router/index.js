@@ -6,6 +6,7 @@ import Privacy from "../pages/Privacy.vue";
 import Terms from "../pages/Terms.vue";
 import Contact from "../pages/Contact.vue";
 import Task from "../pages/CreateTask.vue";
+import Edit from "../pages/EditTask.vue";
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: "/task",
     name: "Task",
     component: Task,
+  },
+  {
+    path: "/edit",
+    name: "Edit",
+    component: Edit,
   },
 ];
 
