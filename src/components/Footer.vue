@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-sky-700 text-white h-[50px] px-5 flex justify-between items-center">
+    <footer class="bg-sky-700 text-white h-[50px] px-5 flex justify-between items-center w-full">
         <div>Copyright &copy;{{ currentYear }}</div>
         <div>
             <router-link to="/privacy" class="px-5">Privacy</router-link>

@@ -1,5 +1,8 @@
 <template>
-    Privacy
+    <div class="bg-slate-100 p-2">
+        <h2>Esto es la página del Privacy</h2>
+
+    </div>
 
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-sky-700 text-white h-[50px] px-5 flex justify-between items-center">
+    <header class="bg-sky-700 text-white h-[50px] px-5 flex justify-between items-center fixed w-full">
         <h2 class="italic font-black text-2xl">MyTasksApp</h2>
         <div class="font-semibold">
             <router-link to="/auth" v-if="!user" class="text-stone-800 font-bold px-5">Sign In</router-link>

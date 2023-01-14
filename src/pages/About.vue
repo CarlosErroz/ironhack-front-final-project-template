@@ -1,5 +1,8 @@
 <template>
-    About
+    <div class="bg-slate-100 p-2">
+        <h2>Esto es la página del about</h2>
+
+    </div>
 
 </template>
 

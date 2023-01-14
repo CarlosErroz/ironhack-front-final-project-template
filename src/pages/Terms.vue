@@ -1,5 +1,8 @@
 <template>
-    Terms
+    <div class="bg-slate-100 p-2">
+        <h2>Esto es la página del Terms</h2>
+
+    </div>
 
 </template>
 

@@ -1,25 +1,25 @@
 <template>
-    <article class="bg-sky-400 rounded-md p-2 my-2 flex flex-col items-start shadow-xl justify-between">
+    <article class="bg-sky-400 rounded-md flex flex-col items-start shadow-xl justify-between p-2">
         <h3 
-            class="my-2 font-bold text-sky-900 text-xl">
+            class="font-bold text-sky-900 text-xl">
             <span class="font-normal text-sky-700 text-lg">Title:</span>
             {{task.title}}
         </h3>
         <p
-            class="my-2 font-bold text-sky-900 text-lg">
+            class="font-bold text-sky-900 text-lg">
             <span class="text-sky-700 font-normal text-lg">Description:</span>
             {{ task.description }}
         </p>
         <div class="flex flex-row items-center justify-between">
             <p
                 v-if="task.is_complete"
-                class="my-2 font-bold text-green-600 text-lg">
+                class="font-bold text-green-600 text-lg">
                 <span class="text-sky-700 font-normal text-lg">Status:</span>
                 Finalized
             </p>
             <p
                 v-else
-                class="my-2 font-bold text-red-400 text-lg">
+                class="font-bold text-red-400 text-lg">
                 <span class="text-sky-700 font-normal text-lg">Status:</span>
                  Pending
                 </p>
