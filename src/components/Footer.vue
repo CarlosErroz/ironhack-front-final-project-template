@@ -1,12 +1,12 @@
 <template>
     <footer
-        class="bg-sky-700 text-white h-[50px] px-5 flex justify-between items-center w-full text-sm
+        class="bg-sky-700 text-white h-[50px] flex justify-between items-center text-sm
                 sm:text-lg">
         <div>Copyright &copy;{{ currentYear }}</div>
-        <div>
-            <router-link to="/privacy" class="px-2 sm:px-5">Privacy</router-link>
-            <router-link to="/terms" class="px-2 sm:px-5">Terms</router-link>
-            <router-link to="/contact" class="px-2 sm:px-5">Contact Us</router-link>
+        <div class="">
+            <router-link to="/privacy" class="pr-5">Privacy</router-link>
+            <router-link to="/terms" class="pr-5">Terms</router-link>
+            <router-link to="/contact" class="">Contact Us</router-link>
         </div>
 
     </footer>

@@ -1,7 +1,7 @@
 <template class="m-0 p-0">
   <Header />
 
-  <router-view class="pt-12 bg-slate-100"></router-view>
+  <router-view class="py-12 bg-zinc-100"></router-view>
 
   <Footer />
 

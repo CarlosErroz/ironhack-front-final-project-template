@@ -8,15 +8,15 @@
       class="p-5 text-red-600 font-bold">
       Ups! no tasks created yet, let's try with your first one
     </p>
-    <div v-else class="w-11/12 my-5 mx-auto">
+    <div v-else class="flex flex-col items-center ">
       <h3
-        class="font-bold text-sky-900 text-center pb-2 text-xl sm:text-2xl">
+        class="font-bold text-sky-900 text-center py-5 text-xl sm:text-2xl">
         Your current list of tasks
       </h3>
       <div
-        class="grid grid-cols-1 gap-2
-              sm:grid-cols-2 sm:gap-5
-              lg:grid-cols-3 ">
+        class="grid grid-cols-1 gap-5
+              sm:grid-cols-2
+              lg:grid-cols-3 lg:gap-10">
         <Task v-for="task in tasks" :task="task">
         </Task>
       </div>

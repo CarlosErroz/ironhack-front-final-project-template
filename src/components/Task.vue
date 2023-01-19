@@ -1,7 +1,7 @@
 <template>
-    <article class="bg-sky-400 rounded-md flex flex-col items-center sm:items-start shadow-xl justify-between p-2">
+    <article class="bg-zinc-300 rounded-md flex flex-col items-center sm:items-start shadow-xl justify-between p-2">
         <h3 
-            class="font-bold text-sky-900 text-xl sm:text-2xl text-center sm:text-left">
+            class="font-bold text-sky-900 text-xl italic sm:text-2xl text-center sm:text-left">
             <span class="font-normal text-sky-700 text-lg">Title:</span>
             {{ task.title }}
         </h3>
@@ -26,13 +26,13 @@
                 </p>
             <button
                 v-if="!task.is_complete"
-                class="bg-slate-500 rounded min-w-max px-1 mx-1 text-sm hover:bg-slate-400 hover:text-white"
+                class="bg-zinc-400 rounded min-w-max px-1 mx-1 text-sm hover:bg-slate-400 hover:text-white"
                 @click="changeToFinalized(task.id,true)">
                 Set to finalized
             </button>
             <button
                 v-else
-                class="bg-slate-500 rounded min-w-fit px-1 mx-1 text-sm hover:bg-slate-400 hover:text-white"
+                class="bg-zinc-400 rounded min-w-fit px-1 mx-1 text-sm hover:bg-slate-400 hover:text-white"
                 @click="changeToPending(task.id,false)">
                 Set to pending
             </button>

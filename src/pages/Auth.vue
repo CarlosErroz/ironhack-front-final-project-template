@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-slate-200 flex flex-col justify-around items-center">
+    <section class="flex flex-col justify-around items-center">
         <h2 class="text-center text-sky-900 text-2xl font-bold pt-5 pb-2.5">Welcome to <span class="italic text-3xl text-sky-600">MyTasksApp</span>!</h2>
         <h3 class="text-center text-sky-900 text-xl font-semibold">Where an easier tracking of your tasks is possible</h3>
         <img src="../assets/PulgarIcon.png" alt ="OK icon" class="w-10 mt-5"/>
