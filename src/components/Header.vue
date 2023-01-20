@@ -2,8 +2,8 @@
     <header class="bg-sky-700 text-white h-[50px] px-5 flex justify-between items-center fixed w-full">
         <h2 class="italic font-black text-2xl">MyTasksApp</h2>
         <div v-if="burgerMenu" @click = "appearMenu" class="sm:hidden hover:cursor-pointer" >
-                <p class="w-5 h-0.5 bg-white origin-center rotate-45"></p>
-                <p class="w-5 h-0.5 bg-white origin-center -rotate-45"></p>
+                <p class="absolute w-5 h-0.5 bg-white rotate-45"></p>
+                <p class="w-5 h-0.5 bg-white -rotate-45 "></p>
         </div>
         <div v-else @click = "appearMenu" class="sm:hidden hover:cursor-pointer">
                 <p class="w-5 h-0.5 bg-white my-1"></p>
