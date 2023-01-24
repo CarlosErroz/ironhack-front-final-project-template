@@ -64,9 +64,6 @@ async function createTask() {
         errorMsg.value = "Error: DESCRIPTION length should be between 6 and 150 characters"
     } else {
     errorMsg.value = null;
-    console.log(taskTitle.value);
-    console.log(taskDescription.value);
-    console.log(user.value.id);
     try {
         await task.postTask(user.value.id,taskTitle.value,taskDescription.value);
         sendingMsg.value = "New task created correctly";

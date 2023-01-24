@@ -21,11 +21,11 @@
             <router-link to="/about" class="px-5">About Us</router-link>
         </div>
         <div class="font-semibold hidden sm:block">
-            <router-link to="/auth" v-if="!user" class="text-stone-800 font-bold px-5">Sign In</router-link>
-            <router-link to="/task" v-if="user" class="text-stone-800 font-bold px-5">New task</router-link>
-            <router-link to="/" class="px-5">Home</router-link>            
-            <button v-if="user" @click="checkOut" class="px-5">Sign Out</button>            
-            <router-link to="/about" class="px-5">About Us</router-link>
+            <router-link to="/auth" v-if="!user" class="text-stone-800 font-bold px-2 lg:px-5">Sign In</router-link>
+            <router-link to="/task" v-if="user" class="text-stone-800 font-bold px-2 lg:px-5">New task</router-link>
+            <router-link to="/" class="px-2 lg:px-5">Home</router-link>            
+            <button v-if="user" @click="checkOut" class="px-2 lg:px-5">Sign Out</button>            
+            <router-link to="/about" class="px-2 lg:px-5">About Us</router-link>
         </div>
         
 

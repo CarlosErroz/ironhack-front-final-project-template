@@ -56,5 +56,15 @@ export const useTaskStore = defineStore("tasks", {
         if (error) throw error;
       },
 
+    // el fetch con filtro
+    async fetchTasksFilter(status) {
+      const { data: tasks } = await supabase
+        .from("tasks")
+        .select("*")
+        .eq("is_complete", status)
+        .order("id", { ascending: false });
+      this.tasks = tasks;
+    },
+
   },
 });

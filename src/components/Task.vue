@@ -1,5 +1,6 @@
 <template>
-    <article class="bg-zinc-300 rounded-md flex flex-col items-center sm:items-start shadow-xl justify-between p-2">
+    <article
+        class="bg-zinc-300 rounded-md flex flex-col items-center sm:items-start shadow-xl justify-between p-2">
         <h3 
             class="font-bold text-sky-900 text-xl italic sm:text-2xl text-center sm:text-left">
             <span class="font-normal text-sky-700 text-lg">Title:</span>
@@ -92,7 +93,6 @@ function preDeletion() {
 async function deletion(value) {
    try {
         await taskStore.deleteTask(value);
-        console.log("Borrado");
         await taskStore.fetchTasks();
         return;
     } catch (e) {
@@ -109,7 +109,6 @@ function cancelDeletion() {
 async function changeToFinalized(idValue,value) {
     try {
         await taskStore.changeTaskStatus(idValue,value);
-        console.log("Change to finalized");
         await taskStore.fetchTasks();
         return;
     } catch (e) {
@@ -120,8 +119,7 @@ async function changeToFinalized(idValue,value) {
 
 async function changeToPending(idValue,value) {
     try {
-        await taskStore.changeTaskStatus(idValue,value);
-        console.log("Change to finalized");
+        await taskStore.changeTaskStatus(idValue,value);    
         await taskStore.fetchTasks();
         return;
     } catch (e) {
@@ -134,9 +132,9 @@ async function changeToPending(idValue,value) {
 
 function editTask(id) {
     editableTask.value=id;
-    console.log(editableTask.value);
     router.push({ path: "/edit" });  
 }
+
 
 </script>
 

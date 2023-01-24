@@ -1,5 +1,5 @@
 <template>
-    <div class="p-10 mx-auto">
+    <div class="p-10 mx-auto flex flex-col">
         <form
             @submit.prevent="editTask(selectedTask.id,editedTitle,editedDescription)"
             class="bg-zinc-300 rounded-md p-5 m-5 shadow-xl flex flex-col">
@@ -30,24 +30,19 @@
                 rows="5"
                 class="mb-5 rounded min-w-full focus:outline-none">
             </textarea>
-
-            <div 
-                class="flex flex-row justify-between">
-                <button
-                    type="submit"
-                    class="bg-sky-600 rounded px-2 hover:bg-slate-400 hover:text-white"
+            <button
+                type="submit"
+                class="bg-sky-600 rounded px-2 hover:bg-slate-400 hover:text-white"
                 >Save changes
-                </button>
-                <button
-                    @click="goBack"
-                    type="submit"
-                    class="bg-slate-600 rounded px-2 hover:bg-slate-400 hover:text-white"
-                >Go back
-                </button>
-
-            </div>
+            </button>
 
         </form>
+        <button
+            @click="goBack"
+            type="submit"
+            class="bg-slate-600 rounded px-5 mx-5 hover:bg-slate-400 hover:text-white"
+            >Go back
+        </button>
     </div>
 </template>
 
@@ -77,8 +72,6 @@ async function editTask(idValue,title,description) {
         return
     } else {    
     errorMsg.value = null;
-    console.log(title);
-    console.log(description);
     try {
         await taskStore.updateTask(idValue,title,description);
         sendingMsg.value = "Task changed correctly";
