@@ -8,12 +8,12 @@
       class="text-red-600 font-bold text-center pt-5">
       Ups! no tasks created yet, let's try with your first one
     </p>
-    <div v-else class="flex flex-col items-center ">
+    <div v-else class="flex flex-col items-center">
       <h3
         class="font-bold text-sky-900 text-center py-5 text-xl sm:text-2xl">
         Your current list of tasks
       </h3>
-      <div class="flex flex-row justify-start w-10/12 pb-2">
+      <div class="flex flex-row pb-2">
         <label class="mr-2">Filter by status: </label>
         <select v-model="status" class="mb-5 rounded focus:outline-none" @change="getTasksFilter" :status="status">
           <option>All</option>
@@ -31,7 +31,7 @@
       <div
         class="grid grid-cols-1 gap-5
               sm:grid-cols-2
-              lg:grid-cols-3 lg:gap-10">
+              lg:grid-cols-3">
         <Task v-for="task in tasks" :task="task" @emitStatus="changeStatus" @emitDeletion="setStatus">
         </Task>
       </div>

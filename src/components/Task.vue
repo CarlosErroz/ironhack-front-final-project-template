@@ -1,6 +1,7 @@
 <template>
     <article
-        class="bg-zinc-400 rounded-md flex flex-col items-center sm:items-start shadow-xl justify-between p-2">
+        class="bg-zinc-400 rounded-md flex flex-col
+        items-center sm:items-start shadow-xl justify-between p-2 w-80">
         <h3 
             class="font-bold text-sky-900 text-xl italic sm:text-2xl text-center sm:text-left">
             <span class="font-normal text-sky-700 text-lg">Title:</span>
@@ -40,9 +41,9 @@
             
         </div>
         <br>
-        <div class="flex flex-row justify-between w-11/12 sm:flex-col">
+        <div class="flex flex-row justify-between w-11/12 sm:flex-col text-sm sm:text-base">
             <button
-                class="bg-sky-600 rounded max-w-fit px-1 sm:mb-2 hover:bg-slate-400 hover:text-white"
+                class="bg-sky-600 rounded max-w-fit px-1 mr-1 sm:mb-2 hover:bg-slate-400 hover:text-white"
                 @click="editTask(task.id)">
                 Edit task
             </button>
