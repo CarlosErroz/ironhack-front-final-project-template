@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="m-0 p-0">
     <p v-if="!user"
-      class="p-5 text-red-600 font-bold">
+      class="text-red-600 font-bold text-center pt-5">
       Please, first SIGN IN as an existing user or create a new one
     </p>
     <p v-else-if="!existanceTasks"
-      class="p-5 text-red-600 font-bold">
+      class="text-red-600 font-bold text-center pt-5">
       Ups! no tasks created yet, let's try with your first one
     </p>
     <div v-else class="flex flex-col items-center ">
@@ -25,14 +25,14 @@
 
       <p v-if="!existanceTasksFilter"
       class="p-5 text-red-600 font-bold">
-      Ups! no tasks of this status, try to select another one
+      Ups! no tasks of this status, try to select another one or create a task
       </p>
 
       <div
         class="grid grid-cols-1 gap-5
               sm:grid-cols-2
               lg:grid-cols-3 lg:gap-10">
-        <Task v-for="task in tasks" :task="task">
+        <Task v-for="task in tasks" :task="task" @emitStatus="changeStatus" @emitDeletion="setStatus">
         </Task>
       </div>
         
@@ -101,6 +101,17 @@ async function getTasksFilter() {
       return;
     }
   }
+
+function changeStatus () {
+  status.value="All";
+  existanceTasks.value=tasks.value.length>0;
+}
+
+function setStatus () {
+  status.value="All";
+  getTasksFilter();
+  existanceTasks.value=tasks.value.length>0;
+}
 
 </script>
 

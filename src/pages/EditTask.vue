@@ -2,7 +2,7 @@
     <div class="p-10 mx-auto flex flex-col">
         <form
             @submit.prevent="editTask(selectedTask.id,editedTitle,editedDescription)"
-            class="bg-zinc-300 rounded-md p-5 m-5 shadow-xl flex flex-col">
+            class="bg-zinc-400 rounded-md p-5 m-5 shadow-xl flex flex-col">
             <h3 class="mb-5 font-bold text-sky-900 text-xl">Edition: write directly changes</h3>
             
             <div v-if="errorMsg">

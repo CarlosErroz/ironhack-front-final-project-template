@@ -1,7 +1,7 @@
 <template>
     <div class="p-10 mx-auto">
         <form @submit.prevent="createTask"
-            class="bg-zinc-300 rounded-md p-5 m-5 shadow-xl flex flex-col">
+            class="bg-zinc-400 rounded-md p-5 m-5 shadow-xl flex flex-col">
             <h3 class="mb-5 font-black text-sky-900 text-xl">Create a new task</h3>
             
             <div v-if="errorMsg">

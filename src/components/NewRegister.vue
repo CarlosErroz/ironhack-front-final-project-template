@@ -1,7 +1,7 @@
 <template>
     <form
         @submit.prevent="register"
-        class="bg-zinc-300 rounded-md p-5 m-5 shadow-xl flex flex-col">
+        class="bg-zinc-400 rounded-md p-5 m-5 shadow-xl flex flex-col">
         <h3 class="mb-5 font-black text-sky-900 text-xl">Register</h3>
         <div v-if="errorMsg">
             <p class="text-red-600 font-bold">{{ errorMsg }}</p>

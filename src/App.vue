@@ -1,7 +1,7 @@
-<template class="m-0 p-0">
+<template>
   <Header />
 
-  <router-view class="py-12 bg-zinc-100"></router-view>
+  <router-view class="pt-12 bg-zinc-200 min-h-screen"></router-view>
 
   <Footer />
 
@@ -34,6 +34,7 @@ onMounted(async () => {
     console.log(e);
   }
 });
+
 
 </script>
 

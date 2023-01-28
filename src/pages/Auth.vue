@@ -1,8 +1,11 @@
 <template>
-    <section class="flex flex-col justify-around items-center">
-        <h2 class="text-center text-sky-900 text-2xl font-bold pt-5 pb-2.5">Welcome to <span class="italic text-3xl text-sky-600">MyTasksApp</span>!</h2>
-        <h3 class="text-center text-sky-900 text-xl font-semibold">Where an easier tracking of your tasks is possible</h3>
-        <img src="../assets/PulgarIcon.png" alt ="OK icon" class="w-10 mt-5"/>
+    <section class="flex flex-col items-center">
+        <h2 class="text-center text-sky-900 text-2xl font-bold py-5">Welcome to <span class="italic text-3xl text-sky-600">MyTasksApp</span>!</h2>
+        <div class="flex flex-row items center justifiy-around">
+            <h3 class="text-center text-sky-900 text-xl font-semibold pr-5">Where an easier tracking of your tasks is possible</h3>
+            <img src="../assets/PulgarIcon.png" alt ="OK icon" class="w-10 hidden sm:block"/>
+        </div>
+        
 
         <Login v-if="show" />
 

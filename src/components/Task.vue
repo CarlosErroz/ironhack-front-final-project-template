@@ -1,6 +1,6 @@
 <template>
     <article
-        class="bg-zinc-300 rounded-md flex flex-col items-center sm:items-start shadow-xl justify-between p-2">
+        class="bg-zinc-400 rounded-md flex flex-col items-center sm:items-start shadow-xl justify-between p-2">
         <h3 
             class="font-bold text-sky-900 text-xl italic sm:text-2xl text-center sm:text-left">
             <span class="font-normal text-sky-700 text-lg">Title:</span>
@@ -27,13 +27,13 @@
                 </p>
             <button
                 v-if="!task.is_complete"
-                class="bg-zinc-400 rounded min-w-max px-1 mx-1 text-sm hover:bg-slate-400 hover:text-white"
+                class="bg-zinc-300 rounded min-w-max px-1 mx-1 text-sm hover:bg-slate-400 hover:text-white"
                 @click="changeToFinalized(task.id,true)">
                 Set to finalized
             </button>
             <button
                 v-else
-                class="bg-zinc-400 rounded min-w-fit px-1 mx-1 text-sm hover:bg-slate-400 hover:text-white"
+                class="bg-zinc-300 rounded min-w-fit px-1 mx-1 text-sm hover:bg-slate-400 hover:text-white"
                 @click="changeToPending(task.id,false)">
                 Set to pending
             </button>
@@ -76,14 +76,19 @@ import {ref} from "vue";
 import { storeToRefs } from "pinia";
 import { useTaskStore } from "../store/task";
 import { useRouter } from "vue-router";
-
+//emits para que al cambiar el status entre pending y finalized el filtro pase a ALL
+const emits = defineEmits(["emitStatus", "emitDeletion"]);
 const props = defineProps(["task"]);
+
 
 const taskStore = useTaskStore();
 const { editableTask } = storeToRefs(taskStore);
 const errorMsg = ref(null);
 const showDelete =ref(false);
 const router = useRouter();
+
+
+
 
 // funciones para borrar una tarea
 function preDeletion() {
@@ -92,8 +97,10 @@ function preDeletion() {
 
 async function deletion(value) {
    try {
-        await taskStore.deleteTask(value);
-        await taskStore.fetchTasks();
+    emits("emitDeletion");
+    await taskStore.deleteTask(value);
+    await taskStore.fetchTasks();
+    showDelete.value =false;
         return;
     } catch (e) {
         errorMsg.value = e.message;
@@ -110,6 +117,7 @@ async function changeToFinalized(idValue,value) {
     try {
         await taskStore.changeTaskStatus(idValue,value);
         await taskStore.fetchTasks();
+        emits("emitStatus");
         return;
     } catch (e) {
         errorMsg.value = e.message;
@@ -121,6 +129,7 @@ async function changeToPending(idValue,value) {
     try {
         await taskStore.changeTaskStatus(idValue,value);    
         await taskStore.fetchTasks();
+        emits("emitStatus");
         return;
     } catch (e) {
         errorMsg.value = e.message;
