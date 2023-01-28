@@ -73,7 +73,8 @@ async function editTask(idValue,title,description) {
     } else {    
     errorMsg.value = null;
     try {
-        await taskStore.updateTask(idValue,title,description);
+        const res = await taskStore.updateTask(idValue,title,description);
+        errorMsg.value = res;
         sendingMsg.value = "Task changed correctly";
         return;
     } catch (e) {
